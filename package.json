@@ -1,0 +1,11 @@
+{
+  "name": "opencv-express",
+  "version": "1.0.0",
+  "description": "",
+  "author": "justadudewhohacks",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.15.5"
+  }
+}

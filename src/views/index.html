@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>opencv4nodejs express example</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <style>
+    button, img {
+      margin: 5px 5px;
+    }
+    .centered-container {
+      margin: 20px;
+      display: flex;
+      justify-content: center;
+    }
+    .centered-text {
+      text-align: center;
+    }
+    .margin-right {
+      margin-right: 5px;
+    }
+  </style>
+  <body>
+    <header class="centered-text">
+      <h1>opencv4nodejs express example</h1>
+    </header>
+    <main>
+      <section>
+        <div class="centered-container">
+          <span class="margin-right"> pick a .png or .jpg file: </span>
+          <input type="file" onchange="onImageSelected(event)" />
+        </div>
+        <div class="centered-container">
+          <button onclick="detectFaces()"> Detect Faces </button>
+          <button onclick="detectORB()"> Detect ORB Features </button>
+          <button onclick="detectSURF()"> Detect SURF Features </button>
+          <button onclick="detectSIFT()"> Detect SIFT Features </button>
+        </div>
+      </section>
+      <section>
+        <div class="centered-container">
+          <img id="input" src="" width="500" height="500" />
+          <img id="output" src="" width="500" height="500" />
+        </div>
+      </section>
+    </main>
+
+    <script src="./api.js"></script>
+    <script src="./helpers.js"></script>
+    <script>
+      var selectedFile;
+      var selectedFileData;
+
+      function onImageSelected(e) {
+        selectedFile = e.target.files[0];
+        var reader = new FileReader();
+        reader.onload = function(re) {
+          selectedFileData = re.target.result;
+          displayImage('input', selectedFileData);
+          document.getElementById('output').src = '';
+        };
+        reader.readAsDataURL(selectedFile);
+      }
+
+      function sendDetectionRequest(imageData, endpoint) {
+        sendXhr(imageData, endpoint, function(err, responseImgData) {
+          if (err) {
+            console.error(err);
+          } else {
+            displayImage('output', responseImgData);
+          }
+        });
+      }
+
+      function detectFaces() {
+        return sendDetectionRequest(selectedFileData, 'faces');
+      }
+
+      function detectORB() {
+        return sendDetectionRequest(selectedFileData, 'features/orb');
+      }
+
+      function detectSURF() {
+        return sendDetectionRequest(selectedFileData, 'features/surf');
+      }
+
+      function detectSIFT() {
+        return sendDetectionRequest(selectedFileData, 'features/sift');
+      }
+
+    </script>
+  </body>
+</html>
