@@ -1,6 +1,6 @@
 {
   "name": "opencv-express",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Example for using opencv4nodejs with express.js and docker.",
   "keywords": [
     "opencv",
