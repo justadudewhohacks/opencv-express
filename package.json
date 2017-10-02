@@ -1,9 +1,28 @@
 {
   "name": "opencv-express",
   "version": "0.0.0",
-  "description": "",
+  "description": "Example for using opencv4nodejs with express.js and docker.",
+  "keywords": [
+    "opencv",
+    "cv",
+    "express",
+    "server",
+    "face",
+    "detection"
+  ],
   "author": "justadudewhohacks",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/justadudewhohacks/opencv-express"
+  },
+  "bugs": {
+    "url": "https://github.com/justadudewhohacks/opencv-express/issues"
+  },
+  "homepage": "https://github.com/justadudewhohacks/opencv-express#readme",
+  "scripts": {
+    "start": "cd node_modules/opencv-express &&docker-compose up"
+  },
   "dependencies": {
     "body-parser": "^1.18.2",
     "express": "^4.15.5"
