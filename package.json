@@ -11,7 +11,7 @@
     "detection"
   ],
   "author": "justadudewhohacks",
-  "license": "ISC",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/justadudewhohacks/opencv-express"
@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/justadudewhohacks/opencv-express#readme",
   "scripts": {
-    "start": "cd node_modules/opencv-express &&docker-compose up"
+    "start": "docker-compose up"
   },
   "dependencies": {
     "body-parser": "^1.18.2",
