@@ -7,6 +7,7 @@
     "cv",
     "express",
     "server",
+    "docker",
     "face",
     "detection"
   ],
