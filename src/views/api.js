@@ -1,5 +1,5 @@
 function getServiceURI(endpoint) {
-  return 'http://192.168.99.100:3001/' + endpoint;
+  return location.href + endpoint;
 }
 
 function sendXhr(imageData, endpoint, onResult) {
